@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wikipedia-deployment
+  labels:
+    app: wikipedia
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: wikipedia
+  template:
+    metadata:
+      labels:
+        app: wikipedia
+    spec:
+      containers:
+      - name: wikipedia-container
+        image: arisetty5/wikipedia-search-app:latest
+        ports:
+        - containerPort: 80
