@@ -7,7 +7,7 @@ This project involves the development and deployment of a Wikipedia Search Appli
 ## Project Workflow
 
 1. **Application Development**:
-   - The application was developed using [technologies used, e.g., React, Node.js, etc.].
+   - The application was developed using Java, HTML, CSS
    - It allows users to search for Wikipedia articles and displays results in a user-friendly manner.
 
 2. **Containerization**:
@@ -28,7 +28,7 @@ This project involves the development and deployment of a Wikipedia Search Appli
 
 ## Accessing the Application
 
-Once deployed, the application can be accessed through the assigned NodePort. Ensure that appropriate network configurations are in place to allow traffic to the application.
+Once deployed, the application can be accessed through the assigned NodePort. We ensure that appropriate network configurations are in place to allow traffic to the application.
 
 ## Conclusion
 
