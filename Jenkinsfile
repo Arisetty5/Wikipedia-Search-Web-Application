@@ -33,13 +33,17 @@ pipeline {
         stage('Push the image to Docker Hub') {
             steps {
                 script {
-                // Login to Docker Hub
-                withCredentials([usernamePassword(credentialsID: DOCKER_CREDENTIALS_ID, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    sh "echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin"
-                }
-
-                // Push the newly created image to Docker hub
+                    // Retrieve credentials directly from Jenkins credentials
+                    def dockerCreds = Jenkins.instance.getItemByFullName(env.JOB_NAME).getCredentials().find { it.id == DOCKER_CREDENTIALS_ID }
+                    
+                    if (dockerCreds) {
+                        // Login to Docker Hub
+                        sh "echo '${dockerCreds.password}' | docker login -u '${dockerCreds.username}' --password-stdin"
+                        
+                        // Push the newly created image to Docker Hub
                 sh "docker push ${DOCKER_IMAGE_NAME}:${env.BUILD_ID}"
+                 } else {
+                        error("Docker credentials not found")
                 }
             }  
             
