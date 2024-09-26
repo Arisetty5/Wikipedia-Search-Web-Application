@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_CREDENTIALS_ID = 'eaafe8c4-a887-4c55-b383-78d37182e7ce'// Jenkins Credential ID for Docker
+        DOCKER_CREDENTIALS_ID = 'dockerhub-credentials' // Jenkins Credential ID for Docker
         // SONARQUBE_CREDENTIALS = credentials('')  // Sonarqube Credentials
         GITHUB_REPO = "https://github.com/Arisetty5/Wikipedia-Search-Web-Application.git" //Github credentials
         // TR_DIR = 'Terrform-files' // Directory containing terraform scripts
