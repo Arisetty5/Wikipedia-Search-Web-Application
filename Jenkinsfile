@@ -24,7 +24,7 @@ pipeline {
                 script {
 
                 // Build a docker image
-                sh "docker buiild -t ${DOCKER_IMAGE_NAME}:${env.BUILD_ID} ."
+                sh "docker build -t ${DOCKER_IMAGE_NAME}:${env.BUILD_ID} ."
 
                 }
             }
