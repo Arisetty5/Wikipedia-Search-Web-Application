@@ -1,0 +1,13 @@
+apiVersion: v1  # Specify the API version for core resources
+kind: Service   # Define the resource type as a Service
+metadata:
+  name: wikipedia-service  # Name of the Service
+spec:
+  type: NodePort  # Specify the type of Service to expose the application externally
+  selector:
+    app: wikipedia  # Selector to match pods with the label 'app: wikipedia'
+  ports:
+    - protocol: TCP  # Specify the protocol used by the Service
+      port: 80  # Port that the Service will expose
+      targetPort: 80  # Port on the container that the Service should forward traffic to
+      nodePort: 30007  # Port that will be exposed on each Node in the cluster (30000-32767 range)

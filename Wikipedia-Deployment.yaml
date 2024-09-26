@@ -1,0 +1,21 @@
+apiVersion: apps/v1  # Specify the API version for apps
+kind: Deployment     # Define the resource type as a Deployment
+metadata:
+  name: wikipedia-deployment  # Name of the Deployment
+  labels:
+    app: wikipedia  # Label to categorize this Deployment
+spec:
+  replicas: 2  # Number of pod replicas to run
+  selector:
+    matchLabels:
+      app: wikipedia  # Selector to identify the pods managed by this Deployment
+  template:
+    metadata:
+      labels:
+        app: wikipedia  # Labels for the pods created by this Deployment
+    spec:
+      containers:
+      - name: wikipedia-container  # Name of the container
+        image: arisetty5/wikipedia-search-app:latest  # Docker image to use
+        ports:
+        - containerPort: 80  # Port on which the container listens
